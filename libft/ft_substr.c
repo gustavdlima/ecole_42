@@ -6,13 +6,13 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:13:31 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/14 19:28:52 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 19:47:39 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_mim(int a, int b)
+static size_t	min(int a, int b)
 {
 	if (a > b)
 		return (b);
@@ -25,11 +25,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	max_size;
 	char	*substring;
 
-	index = ft_strlen((char *)s);
-	if (!index)
-		return (0);
 	if (!s)
 		return (0);
+	index = ft_strlen((char *)s);
 	if (start < index)
 		max_size = ft_mim(ft_strlen(s + start), len);
 	else

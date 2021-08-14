@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 16:59:53 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/14 19:30:05 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 19:48:31 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *prefix, char const *sufix)
 	char	*aux;
 	size_t	size;
 
+	if (!prefix || !sufix)
+		return (0);
 	size = (ft_strlen(prefix) + ft_strlen(sufix) + 1);
 	aux = malloc(sizeof(char) * size);
 	if (!aux)
