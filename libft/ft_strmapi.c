@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 03:07:46 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/14 19:51:04 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 19:58:20 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s)
 		return (0);
 	str = ft_strdup(s);
+	if (!str)
+		return (0);
 	index = 0;
 	while (str[index])
 	{
