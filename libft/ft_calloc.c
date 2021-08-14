@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 02:51:50 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/13 03:03:01 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 18:59:07 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t number, size_t size)
 	if (number * size > 2147483647)
 		return (NULL);
 	result = malloc(number * size);
-	if (!result)
+	if (result == 0)
 		return (0);
 	ft_memset(result, 0, number * size);
 	return (result);

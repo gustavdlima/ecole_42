@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:13:31 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/13 23:27:00 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 19:28:52 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substring;
 
 	index = ft_strlen((char *)s);
+	if (!index)
+		return (0);
 	if (!s)
 		return (0);
 	if (start < index)

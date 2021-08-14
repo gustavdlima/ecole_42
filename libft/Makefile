@@ -22,10 +22,6 @@ ARFLAGS 		=	rcs
 .c.o:
 				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
-
 all:			$(NAME)
 
 $(NAME):		$(OBJS)

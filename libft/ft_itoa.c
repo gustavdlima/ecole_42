@@ -6,18 +6,19 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 21:21:45 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/13 23:01:19 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 19:14:23 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	intlen(int n)
+static int	intlen(int n)
 {
-	size_t	i;
-
+	int	i;
 	i = 0;
-	while (n)
+	if (n == 0)
+		i++;
+	while (n != 0)
 	{
 		i++;
 		n /= 10;
@@ -32,7 +33,7 @@ static int	isabs(int n)
 	return (n);
 }
 
-void	revalue(char *number)
+static void	revalue(char *number)
 {
 	size_t	start;
 	size_t	end;
@@ -40,7 +41,7 @@ void	revalue(char *number)
 
 	start = 0;
 	end = ft_strlen(number) - 1;
-	while (start < end)
+	while (number[start] && start < end)
 	{
 		aux = number[start];
 		number[start] = number[end];
@@ -55,15 +56,13 @@ char	*ft_itoa(int n)
 	size_t	size;
 	char	*string;
 	size_t	is_n;
-	size_t	count;
 
-	count = intlen(n);
 	is_n = (n < 0);
 	if (n == 0)
 		return (ft_strdup("0"));
-	string = ft_calloc((sizeof(char) + 1), (count + is_n));
+	string = ft_calloc(sizeof(char), ((intlen(n) + is_n) + 1));
 	if (!string)
-		return (0);
+		return (NULL);
 	size = 0;
 	while (n != 0)
 	{
