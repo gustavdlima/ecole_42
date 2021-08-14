@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:13:31 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/14 19:47:39 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 19:53:54 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	index = ft_strlen((char *)s);
 	if (start < index)
-		max_size = ft_mim(ft_strlen(s + start), len);
+		max_size = ft_mnm(ft_strlen(s + start), len);
 	else
 		return (ft_strdup(""));
 	substring = ft_calloc(max_size + 1, sizeof(char));
