@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 00:00:39 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/14 00:24:36 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 22:08:50 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *str, void (*f)(unsigned int, char*))
 		return ;
 	strlen = ft_strlen(str);
 	index = 0;
-	while(index < strlen)
+	while (index < strlen)
 	{
 		f(index, &str[index]);
 		index++;

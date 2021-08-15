@@ -30,9 +30,6 @@ $(NAME):		$(OBJECTS)
 bonus:			$(NAME)
 				$(AR) $(ARFLAGS) $(NAME)
 
-runw:
-		bash warmachine/grademe.sh -u -op2
-
 clean:
 				$(RM) $(OBJECTS)
 
