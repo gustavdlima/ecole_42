@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 21:21:45 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/14 19:14:23 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/14 20:59:33 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	intlen(int n)
 {
 	int	i;
+
 	i = 0;
 	if (n == 0)
 		i++;

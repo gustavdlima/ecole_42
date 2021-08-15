@@ -1,14 +1,14 @@
-SRCS	=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c
-SRCS			+=	ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
-SRCS			+=	ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c
-SRCS			+=	ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c
-SRCS			+=	ft_putnbr_fd.c ft_putstr_fd.c ft_strchr.c
-SRCS			+=	ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c
-SRCS			+=	ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c
-SRCS			+=	ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c
-SRCS			+=	ft_tolower.c ft_toupper.c
+SOURCES			=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c
+SOURCES			+=	ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
+SOURCES			+=	ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c
+SOURCES			+=	ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c
+SOURCES			+=	ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c
+SOURCES			+=	ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c
+SOURCES			+=	ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c
+SOURCES			+=	ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c
+SOURCES			+=	ft_tolower.c ft_toupper.c
 
-OBJS			= 	$(SRCS:.c=.o)
+OBJECTS			= 	$(SOURCES:.c=.o)
 
 NAME			=	libft.a
 
@@ -24,14 +24,17 @@ ARFLAGS 		=	rcs
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
-				$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+$(NAME):		$(OBJECTS)
+				$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
+
+bonus:			$(NAME)
+				$(AR) $(ARFLAGS) $(NAME)
 
 runw:
 		bash warmachine/grademe.sh -u -op2
 
 clean:
-				$(RM) $(OBJS)
+				$(RM) $(OBJECTS)
 
 fclean:			clean
 				$(RM) $(NAME)
