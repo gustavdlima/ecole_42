@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/14 03:07:46 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/18 01:59:18 by gusalves         ###   ########.fr       */
+/*   Created: 2021/08/18 00:04:30 by gusalves          #+#    #+#             */
+/*   Updated: 2021/08/18 00:37:53 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	index;
-	char	*str;
-
-	if (!s)
-		return (0);
-	str = ft_strdup(s);
-	if (!str)
-		return (0);
-	index = 0;
-	while (str[index])
+	if (lst && new)
 	{
-		str[index] = f(index, str[index]);
-		index++;
+		new->next = *lst; // acesso o conteúdo new,  ao ponteiro next o primeiro valor da lista
+		*lst = new; // atribui ao começo da lista o valor de new.
 	}
-	str[index] = '\0';
-	return (str);
+	return ;
 }
