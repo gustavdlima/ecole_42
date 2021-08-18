@@ -6,13 +6,13 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 09:28:19 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/18 00:37:52 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/18 15:17:00 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*element;
 

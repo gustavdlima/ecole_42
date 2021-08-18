@@ -6,13 +6,13 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 01:38:19 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/18 01:49:33 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/18 03:03:08 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*aux;
 
