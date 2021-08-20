@@ -29,13 +29,13 @@ typedef struct s_list
 //Part 1 - Libc functions
 
 /**
- * @brief Converts the string argument nptr to an integer (type int).
+ * @brief Converts the string argument str to an integer (type int).
  *
- * @param nptr This is the string representation of an integral number.
+ * @param str This is the string representation of an integral number.
  * @return This function returns the converted integral number as an int value.
  * If no valid conversion could be performed, it returns zero.
  */
-int		ft_atoi(const char *nptr);
+int		ft_atoi(const char *str);
 
 /**
  * @brief Checks if the passed character is alphanumeric.
@@ -225,13 +225,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 
 /**
- * @brief Writes len zero bytes to the buffer b. If len is zero, bzero()
+ * @brief Writes len zero bytes to the buffer s. If len is zero, bzero()
  * does nothing.
  *
  * @param b Points to a buffer that zeros are copied into.
  * @param len The number of zeros to be copied into the buffer.
  */
-void	ft_bzero(void *b, size_t len);
+void	ft_bzero(void *s, size_t len);
 
 /**
  * @brief Allocates space for number objects, each size bytes in length.

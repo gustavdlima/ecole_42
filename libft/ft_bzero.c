@@ -6,14 +6,14 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 21:46:36 by gstvmrtns         #+#    #+#             */
-/*   Updated: 2021/08/09 22:56:35 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/08/20 03:09:00 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t len)
 {
-	while (n--)
-		((unsigned char *)s)[n] = 0;
+	while (len--)
+		((unsigned char *)s)[len] = 0;
 }
