@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 15:44:54 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/08 20:14:01 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/09/09 22:51:19 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,65 +18,79 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-char	*treat_the_line(char *backup_buffer)
+char	*line_adjustment(char **backup_buffer)
 {
-	size_t	i;
 	char	*str;
+	size_t	i;
 	char	*tmp;
 
-	while (backup_buffer[i] != '\n')
+	i = 0;
+	str = *backup_buffer;
+	while ((*backup_buffer)[i] != '\n' && str[i]
+			|| (*backup_buffer)[i] != '\0')
 	{
-		str[i] = backup_buffer[i];
+		str[i] = (*backup_buffer)[i];
 		i++;
+
 	}
-	tmp = ft_strdup(&backup_buffer[i]);
-	free(backup_buffer);
-	backup_buffer = tmp;
+	*backup_buffer = ft_strdup(&(*backup_buffer)[i + 1]);
+	str[i] = '\0';
 	return(str);
 }
 
-char	*line(int fd)
+char	*line_reader(int fd)
 {
 	char		*buffer;
 	static char	*backup_buffer;
 	char		*tmp;
 	ssize_t		bytes_read;
 
-	if (fd <= 0 || BUFFER_SIZE < 1)
+	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
 		return (NULL);
-	backup_buffer = ft_strdup("");
-	buffer = (char *)malloc((BUFFER_SIZE +1) * sizeof(char));
-	while (ft_strchr(buffer, '\n') == NULL)
+	bytes_read = 0;
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	while (bytes_read > 0)
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read == 0)
+		if (!backup_buffer)
+			backup_buffer = ft_strdup("");
+		buffer[bytes_read] = '\0';
+		tmp = ft_strdup(backup_buffer);
+		free(backup_buffer);
+		backup_buffer = ft_strjoin(tmp, buffer);
+		free(tmp);
+		if (ft_strchr(backup_buffer, '\n'))
 			break ;
-		tmp = ft_strjoin(backup_buffer, buffer);
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
 	}
-	return (tmp);
+	if (bytes_read == 0 && !*backup_buffer)
+		return (NULL);
+	return (line_adjustment(&backup_buffer));
 }
 
 char	*get_next_line(int fd)
 {
 	char	*line;
-	line =
-	printf("%s\n", buffer);
-	return (buffer);
+
+	if (fd <= 0 || BUFFER_SIZE < 1)
+		return (NULL);
+	line = line_reader(fd);
+	return (line);
 }
 
-int	main(void)
+int main(void)
 {
-	char	*str;
-	int	fd;
+    char    *str;
+    int        fd;
 
-	fd = open("euzequia.txt", O_RDONLY);
-		str = get_next_line(fd);
-		printf("%s", str);
-		free(str);
-	// while (1)
-	// {
-	// 	if (!str)
-	// 		break ;
-	// }
-	// return (0);
- }
+    fd = open("euzequia.txt", O_RDONLY);
+    while(1)
+    {
+        str = get_next_line(fd);
+        if (!str)
+            break ;
+        printf("%s", str);
+        free(str);
+    }
+    return (0);
+}
