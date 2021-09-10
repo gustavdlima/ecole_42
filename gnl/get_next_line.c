@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 15:44:54 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/09 22:51:19 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/09/09 23:26:18 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,16 @@ char	*line_adjustment(char **backup_buffer)
 {
 	char	*str;
 	size_t	i;
-	char	*tmp;
 
 	i = 0;
-	str = *backup_buffer;
-	while ((*backup_buffer)[i] != '\n' && str[i]
-			|| (*backup_buffer)[i] != '\0')
-	{
-		str[i] = (*backup_buffer)[i];
+	while ((*backup_buffer)[i] != '\n' && (*backup_buffer)[i] != '\0')
 		i++;
-
-	}
-	*backup_buffer = ft_strdup(&(*backup_buffer)[i + 1]);
+	if ((*backup_buffer)[i] == '\n')
+    	i++;
+	str = ft_substr((*backup_buffer), 0, i);
+	*backup_buffer = ft_strdup(&(*backup_buffer)[i]);
 	str[i] = '\0';
-	return(str);
+	return (str);
 }
 
 char	*line_reader(int fd)

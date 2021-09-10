@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 15:44:50 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/09 22:15:14 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/09/09 23:26:20 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ char	*ft_strdup(const char *str);
 size_t	ft_strlen(const char *s);
 
 char	*ft_strjoin(char const *prefix, char const *sufix);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
