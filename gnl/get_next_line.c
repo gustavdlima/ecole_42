@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 15:44:54 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/09 23:26:18 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:41:25 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,37 +27,38 @@ char	*line_adjustment(char **backup_buffer)
 	while ((*backup_buffer)[i] != '\n' && (*backup_buffer)[i] != '\0')
 		i++;
 	if ((*backup_buffer)[i] == '\n')
-    	i++;
+		i++;
 	str = ft_substr((*backup_buffer), 0, i);
 	*backup_buffer = ft_strdup(&(*backup_buffer)[i]);
 	str[i] = '\0';
 	return (str);
 }
 
-char	*line_reader(int fd)
+char	*line_reader(int fd, char **buffer)
 {
-	char		*buffer;
 	static char	*backup_buffer;
 	char		*tmp;
 	ssize_t		bytes_read;
 
-	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
-		return (NULL);
 	bytes_read = 0;
-	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	bytes_read = read(fd, *buffer, BUFFER_SIZE);
+	if (read(fd, buffer, 0) < 0)
+	{
+		free(buffer);
+		return (NULL);
+	}
 	while (bytes_read > 0)
 	{
 		if (!backup_buffer)
 			backup_buffer = ft_strdup("");
-		buffer[bytes_read] = '\0';
+		(*buffer)[bytes_read] = '\0';
 		tmp = ft_strdup(backup_buffer);
 		free(backup_buffer);
-		backup_buffer = ft_strjoin(tmp, buffer);
+		backup_buffer = ft_strjoin(tmp, *buffer);
 		free(tmp);
 		if (ft_strchr(backup_buffer, '\n'))
 			break ;
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		bytes_read = read(fd, *buffer, BUFFER_SIZE);
 	}
 	if (bytes_read == 0 && !*backup_buffer)
 		return (NULL);
@@ -67,10 +68,15 @@ char	*line_reader(int fd)
 char	*get_next_line(int fd)
 {
 	char	*line;
+	char	*buffer;
 
 	if (fd <= 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	line = line_reader(fd);
+	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
+		return (NULL);
+	line = line_reader(fd, &buffer);
+	free(buffer);
 	return (line);
 }
 
