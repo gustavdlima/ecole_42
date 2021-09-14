@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 15:44:53 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/09 23:03:30 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/09/13 23:59:29 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,27 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char    *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    char    *str;
-    size_t    i;
-    size_t    j;
-    size_t    size;
+	char	*str;
+	size_t	i;
+	size_t	j;
+	size_t	size;
 
-    if (!s1 || !s2)
-        return (NULL);
-    size = ft_strlen(s1) + ft_strlen(s2) + 1;
-    str = (char *)malloc(sizeof(char) * size);
-    if (!str)
-        return (NULL);
-    i = -1;
-    while (s1[++i])
-        str[i] = s1[i];
-    j = -1;
-    while (s2[++j])
-        str[i + j] = s2[j];
-    str[i + j] = '\0';
-    return (str);
+	if (!s1 || !s2)
+		return (NULL);
+	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	str = (char *)malloc(sizeof(char) * size);
+	if (!str)
+		return (NULL);
+	i = -1;
+	while (s1[++i])
+		str[i] = s1[i];
+	j = -1;
+	while (s2[++j])
+		str[i + j] = s2[j];
+	str[i + j] = '\0';
+	return (str);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
