@@ -6,14 +6,13 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 15:44:50 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/14 00:11:19 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/09/14 12:03:38 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 
