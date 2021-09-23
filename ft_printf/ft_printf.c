@@ -12,30 +12,30 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 
-int ft_printf(int tst, ...)
+int ft_printf(const char *string, ...)
 {
-	va_list args;
+	va_list	list;
+	size_t	i;	
 
-	va_start(args, tst);
+	i = 0;	
+	va_start(list, string);
 	
-	int	value;
-	int	i = 0;
-	
-	while (i < tst)
-	{	
-		value = va_arg(args, int);
-		printf("%d: %d\n", i, value);
+	while (string[i])
+	{
+		write (1, &string[i], 1);
 		i++;
 	}
-	va_end(args); 
+
+	va_end(list); 
 	return (0);
 }
 
 
 int main ()
 {
-	ft_printf(3, 1, 2, 3);
+	ft_printf("kkkk testando");
 }
 
 
