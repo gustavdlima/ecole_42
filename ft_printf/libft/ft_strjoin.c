@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 18:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/29 18:01:32 by gusalves         ###   ########.fr       */
+/*   Created: 2021/08/13 16:59:53 by gusalves          #+#    #+#             */
+/*   Updated: 2021/08/14 19:48:31 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+char	*ft_strjoin(char const *prefix, char const *sufix)
 {
-	va_list	list;
-	size_t	i;	
-	int		num_of_char;
+	char	*aux;
+	size_t	size;
 
-	if(!format)
-		return (NULL);
-	i = 0;
-	num_of_char = 0;
-	va_start(list, format);
-	while (format[i])
-	{
-		if (format[i] == '%')
-		{
-			i++;
-			num_of_char = find_type(format, list);
-		}
-		else
-		{
-			num_of_char += 1;
-			write(1, &format[i],i);
-		}
-	}
-	va_end(list); 
-	return (num_of_char);
+	if (!prefix || !sufix)
+		return (0);
+	size = (ft_strlen(prefix) + ft_strlen(sufix) + 1);
+	aux = malloc(sizeof(char) * size);
+	if (!aux)
+		return (0);
+	ft_strlcpy(aux, prefix, (ft_strlen(prefix) + 1));
+	ft_strlcat(aux, sufix, size);
+	return (aux);
 }

@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 18:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/29 18:01:32 by gusalves         ###   ########.fr       */
+/*   Created: 2021/08/10 19:35:56 by gusalves          #+#    #+#             */
+/*   Updated: 2021/08/13 13:40:36 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+void	*ft_memchr(const void *b, int c, size_t len)
 {
-	va_list	list;
-	size_t	i;	
-	int		num_of_char;
+	size_t	index;
 
-	if(!format)
-		return (NULL);
-	i = 0;
-	num_of_char = 0;
-	va_start(list, format);
-	while (format[i])
+	index = 0;
+	while (index < len)
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			num_of_char = find_type(format, list);
-		}
-		else
-		{
-			num_of_char += 1;
-			write(1, &format[i],i);
-		}
+		if (((unsigned char *)b)[index] == (unsigned char)c)
+			return ((unsigned char *)b + index);
+		index++;
 	}
-	va_end(list); 
-	return (num_of_char);
+	return (0);
 }

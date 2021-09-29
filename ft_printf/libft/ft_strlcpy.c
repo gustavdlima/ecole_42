@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 18:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/29 18:01:32 by gusalves         ###   ########.fr       */
+/*   Created: 2021/08/09 19:49:48 by gusalves          #+#    #+#             */
+/*   Updated: 2021/08/13 01:09:28 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	va_list	list;
-	size_t	i;	
-	int		num_of_char;
+	size_t	index;
 
-	if(!format)
-		return (NULL);
-	i = 0;
-	num_of_char = 0;
-	va_start(list, format);
-	while (format[i])
+	index = 0;
+	if (!dest && !src && !size)
+		return (0);
+	if (size > 0)
 	{
-		if (format[i] == '%')
+		while (index < size - 1 && src[index] != '\0')
 		{
-			i++;
-			num_of_char = find_type(format, list);
+			dest[index] = src[index];
+			index++;
 		}
-		else
-		{
-			num_of_char += 1;
-			write(1, &format[i],i);
-		}
+		dest[index] = '\0';
 	}
-	va_end(list); 
-	return (num_of_char);
+	return (ft_strlen(src));
 }

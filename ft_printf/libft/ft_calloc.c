@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 18:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/29 18:01:32 by gusalves         ###   ########.fr       */
+/*   Created: 2021/08/13 02:51:50 by gusalves          #+#    #+#             */
+/*   Updated: 2021/08/20 03:20:30 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+void	*ft_calloc(size_t number, size_t size)
 {
-	va_list	list;
-	size_t	i;	
-	int		num_of_char;
+	void	*result;
 
-	if(!format)
+	if (number * size > 2147483647)
 		return (NULL);
-	i = 0;
-	num_of_char = 0;
-	va_start(list, format);
-	while (format[i])
-	{
-		if (format[i] == '%')
-		{
-			i++;
-			num_of_char = find_type(format, list);
-		}
-		else
-		{
-			num_of_char += 1;
-			write(1, &format[i],i);
-		}
-	}
-	va_end(list); 
-	return (num_of_char);
+	result = malloc(number * size);
+	if (result == 0)
+		return (0);
+	ft_memset(result, 0, number * size);
+	return (result);
 }

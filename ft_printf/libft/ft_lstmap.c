@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 18:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/29 18:01:32 by gusalves         ###   ########.fr       */
+/*   Created: 2021/08/18 15:36:16 by gusalves          #+#    #+#             */
+/*   Updated: 2021/08/18 18:00:17 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	va_list	list;
-	size_t	i;	
-	int		num_of_char;
+	t_list	*aux;
+	t_list	*new;
 
-	if(!format)
+	if (!lst)
 		return (NULL);
-	i = 0;
-	num_of_char = 0;
-	va_start(list, format);
-	while (format[i])
+	while(lst)
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			num_of_char = find_type(format, list);
-		}
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+			ft_lstclear(&new, del);
 		else
-		{
-			num_of_char += 1;
-			write(1, &format[i],i);
-		}
+			ft_lstadd_back(&aux, new);
+		lst = lst->next;
 	}
-	va_end(list); 
-	return (num_of_char);
+	return (aux);
 }

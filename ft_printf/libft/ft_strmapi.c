@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 18:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/29 18:01:32 by gusalves         ###   ########.fr       */
+/*   Created: 2021/08/14 03:07:46 by gusalves          #+#    #+#             */
+/*   Updated: 2021/08/18 01:59:18 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	va_list	list;
-	size_t	i;	
-	int		num_of_char;
+	size_t	index;
+	char	*str;
 
-	if(!format)
-		return (NULL);
-	i = 0;
-	num_of_char = 0;
-	va_start(list, format);
-	while (format[i])
+	if (!s)
+		return (0);
+	str = ft_strdup(s);
+	if (!str)
+		return (0);
+	index = 0;
+	while (str[index])
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			num_of_char = find_type(format, list);
-		}
-		else
-		{
-			num_of_char += 1;
-			write(1, &format[i],i);
-		}
+		str[index] = f(index, str[index]);
+		index++;
 	}
-	va_end(list); 
-	return (num_of_char);
+	str[index] = '\0';
+	return (str);
 }
