@@ -6,45 +6,50 @@
 #    By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/16 18:41:56 by gusalves          #+#    #+#              #
-#    Updated: 2021/09/29 11:07:03 by gusalves         ###   ########.fr        #
+#    Updated: 2021/09/30 04:45:55 by gusalves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-LIBFT	= $(LIBFT_SRC)/libft.a
+LIBFT_SRC = 	./libft
 
-NAME	= ft_printf.a
+LIBFT	=		$(LIBFT_SRC)/libft.a
 
-SRCS	= ft_printf.c search_type.c
+NAME	=		libftprintf.a
 
-OBJS	= $(SRCS:.c=.o)
+SRCS	=		ft_printf.c find_type.c cspd%_flags.c main.c
 
-CC		= clang
-AR		= ar
-RM		= rm -f
+OBJS	=		$(SRCS:.c=.o)
 
-CFLAGS	= -Wall -Wextra -Werror
-ARFLAGS = rcs
+CC		=		clang
+AR		=		ar
+RM		=		rm -f
 
-.c=.o:
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(LIBFT_SRC)
+CFLAGS	=		-Wall -Wextra -Werror
+ARFLAGS =		rcs
 
-all:	$(LIBFT) $(NAME)
+.c.o:
+				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(LIBFT_SRC)
 
-$NAME:	$(OBJS)
-			cp $(LIBFT) $(NAME) 
-			$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+all:			$(LIBFT) $(NAME)
 
-$LIBFT:
-		$(MAKE) -C $(LIBFT_SRC)
+$(NAME):		$(OBJS)
+				cp $(LIBFT) $(NAME)
+				$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+
+$(LIBFT):
+				$(MAKE) -C $(LIBFT_SRC)
 
 clean:
-			$(MAKE) -C $(LIBFT_SRC) clean
-			$(RM) $(NAME)
+				$(MAKE) -C $(LIBFT_SRC) clean
+				$(RM) $(NAME)
 
-fclean: clean
-			$(RM) $(NAME)
+fclean: 		clean
+				$(RM) $(NAME) $(OBJS)
 
-re:		fclean all
+re:				fclean all
 
-.PHONY:	all clean fclean re libft
+exe:
+				clear && clang ft_printf.c main.c libftprintf.a && ./a.out
+
+.PHONY:			all clean fclean re libft

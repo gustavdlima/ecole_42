@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 18:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/30 04:28:46 by gusalves         ###   ########.fr       */
+/*   Created: 2021/09/30 04:26:07 by gusalves          #+#    #+#             */
+/*   Updated: 2021/09/30 04:46:40 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_printf(const char *format, ...)
+int main()
 {
-	va_list	args;
-	size_t	i;
-	int		num_of_char;
+	char	w;
 
-	if(!format)
-		return (0);
-	i = 0;
-	num_of_char = 0;
-	va_start(args, format);
-
-	num_of_char = find_type(format, args);
-
-	va_end(args);
-	return (num_of_char);
+	w = 'c';
+	ft_printf("%c", w);
 }

@@ -1,18 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   iuxX_flags.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 18:41:51 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/29 01:30:35 by gusalves         ###   ########.fr       */
+/*   Created: 2021/09/30 02:42:08 by gusalves          #+#    #+#             */
+/*   Updated: 2021/09/30 04:45:46 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "./libft/libft.h"
-
-int	ft_printf(const char *format, ...);
+#include "libftprintf.h"
