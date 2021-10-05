@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 18:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/30 04:28:46 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/04 15:01:09 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	size_t	i;
 	int		num_of_char;
 
-	if(!format)
-		return (0);
-	i = 0;
 	num_of_char = 0;
 	va_start(args, format);
 

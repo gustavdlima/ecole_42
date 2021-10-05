@@ -6,16 +6,18 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 04:26:07 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/30 04:46:40 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/05 01:21:08 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int main()
+int main(void)
 {
 	char	w;
+	char 	*str;
 
-	w = 'c';
-	ft_printf("%c", w);
+	str = "string";
+	w = 'A';
+	ft_printf("%c %s", w, str);
 }

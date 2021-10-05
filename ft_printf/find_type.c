@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 10:52:42 by gusalves          #+#    #+#             */
-/*   Updated: 2021/09/30 04:48:07 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/05 01:13:57 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,45 +19,45 @@ int	format_id(const char *format, va_list args)
 	num_of_char = 0;
 	if (*format == 'c')
 		num_of_char += c_flag(va_arg(args, int));
-	// if (format == 's')
+	if (*format == 's')
+		num_of_char += s_flag(va_arg(args, char *));
+	// if (*format == 'p')
 	// 	num_of_char += ;
-	// if (format == 'p')
+	// if (*format == 'd')
 	// 	num_of_char += ;
-	// if (format == 'd')
+	// if (*format == 'i')
 	// 	num_of_char += ;
-	// if (format == 'i')
+	// if (*format == 'u')
 	// 	num_of_char += ;
-	// if (format == 'u')
+	// if (*format == 'x')
 	// 	num_of_char += ;
-	// if (format == 'x')
+	// if (*format == 'X')
 	// 	num_of_char += ;
-	// if (format == 'X')
-	// 	num_of_char += ;
-	// if (format == '%')
+	// if (*format == '%')
 	// 	num_of_char += ;
 	return (num_of_char);
 }
 
 int	find_type(const char *format, va_list args)
 {
-	int		i;
 	int		num_of_char;
 
-	i = 0;
+	if(!format)
+		return (0);
 	num_of_char = 0;
-	while(format)
+	while(*format)
 	{
-		if (format[i] == '%')
+		if (*format == '%' && ft_strchr("cspdiuxX%", format[1]))
 		{
-			i++;
+			format++;
 			num_of_char += format_id(format, args);
 		}
 		else
 		{
-			write(1, format++, 1);
+			write(1, format, 1);
 			num_of_char++;
 		}
-		i++;
+		format++;
 	}
 	return (num_of_char);
 }
