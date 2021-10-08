@@ -6,7 +6,7 @@
 #    By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/16 18:41:56 by gusalves          #+#    #+#              #
-#    Updated: 2021/10/02 06:35:55 by gusalves         ###   ########.fr        #
+#    Updated: 2021/10/08 01:51:53 by gusalves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ LIBFT	=		$(LIBFT_SRC)/libft.a
 
 NAME	=		libftprintf.a
 
-SRCS	=		ft_printf.c find_type.c cspd%_flags.c main.c
+SRCS	=		ft_printf.c find_type.c csdi%_flags.c puxX_flags.c
+SRCS	+=		printf_utils.c main.c
 
 OBJS	=		$(SRCS:.c=.o)
 
@@ -50,6 +51,6 @@ fclean: 		clean
 re:				fclean all
 
 exe:
-				clear && clang ft_printf.c main.c libftprintf.a && ./a.out
+				clear && clang ft_printf.c libftprintf.a && ./a.out
 
 .PHONY:			all clean fclean re libft

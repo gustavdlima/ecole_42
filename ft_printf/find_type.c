@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 10:52:42 by gusalves          #+#    #+#             */
-/*   Updated: 2021/10/05 01:13:57 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/08 01:46:58 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ int	format_id(const char *format, va_list args)
 		num_of_char += c_flag(va_arg(args, int));
 	if (*format == 's')
 		num_of_char += s_flag(va_arg(args, char *));
-	// if (*format == 'p')
-	// 	num_of_char += ;
-	// if (*format == 'd')
-	// 	num_of_char += ;
-	// if (*format == 'i')
-	// 	num_of_char += ;
-	// if (*format == 'u')
-	// 	num_of_char += ;
+	if (*format == 'p')
+		num_of_char += p_flag(va_arg(args, size_t));
+	if (*format == 'd' || *format == 'i')
+		num_of_char += d_and_i_flag(va_arg(args, int));
+	if (*format == 'u')
+		num_of_char += u_flag(va_arg(args, unsigned int));
 	// if (*format == 'x')
 	// 	num_of_char += ;
 	// if (*format == 'X')

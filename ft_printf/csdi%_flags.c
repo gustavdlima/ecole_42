@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cspd%_flags.c                                      :+:      :+:    :+:   */
+/*   csdi%_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 02:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/10/05 01:43:15 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/08 01:38:43 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,25 @@ int	c_flag(int x)
 
 int	s_flag(char *str)
 {
-	size_t	i;
+	size_t	size;
 
-	i = ft_strlen(str);
+	if (str == NULL)
+	{
+		write(1, "(NULL)", 6);
+		return (6);
+	}
+	size = ft_strlen(str);
 	ft_putstr_fd(str, 1);
-	return(i);
+	return(size);
 }
 
-int	p( )
+int	d_and_i_flag(int n)
 {
+	char	*str;
+	int		size;
 
+	str = ft_itoa(n);
+	size = s_flag(str);
+	free(str);
+	return (size);
 }
