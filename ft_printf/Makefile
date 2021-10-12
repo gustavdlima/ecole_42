@@ -6,51 +6,57 @@
 #    By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/16 18:41:56 by gusalves          #+#    #+#              #
-#    Updated: 2021/10/08 01:51:53 by gusalves         ###   ########.fr        #
+#    Updated: 2021/10/11 23:06:19 by gusalves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME		=	libftprintf.a
 
-LIBFT_SRC = 	./libft
+LIBFT_SRC	=	./libft
 
-LIBFT	=		$(LIBFT_SRC)/libft.a
+LIBFT		=	$(LIBFT_SRC)/libft.a
 
-NAME	=		libftprintf.a
+SRC_DIR		=	./src
 
-SRCS	=		ft_printf.c find_type.c csdi%_flags.c puxX_flags.c
-SRCS	+=		printf_utils.c main.c
+HEADER_DIR	=	./header
 
-OBJS	=		$(SRCS:.c=.o)
+INCLUDES	=	-I${HEADER_DIR} -I${LIBFT_SRC}
 
-CC		=		clang
-AR		=		ar
-RM		=		rm -f
+SRCS		=	$(SOURCE_DIR)/ft_printf.c \
+					$(SOURCE_DIR)/find_type.c \
+					$(SOURCE_DIR)/csdi%_flags.c \
+					$(SOURCE_DIR)/puxX_flags.c \
+					$(SOURCE_DIR)/printf_utils.c
 
-CFLAGS	=		-Wall -Wextra -Werror
-ARFLAGS =		rcs
+OBJS		=	$(SRCS:.c=.o)
 
-.c.o:
-				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(LIBFT_SRC)
+CC			=	clang
+AR			=	ar
+RM			=	rm -f
 
-all:			$(LIBFT) $(NAME)
+CFLAGS		=	-Wall -Wextra -Werror
+ARFLAGS		=	rcs
 
-$(NAME):		$(OBJS)
-				cp $(LIBFT) $(NAME)
-				$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+all:				$(LIBFT) $(NAME)
+
+$(NAME):			$(OBJS)
+						$(AR) $(ARFLAGS) $(NAME) $(SOURCE_DIR)/$(OBJS)
+						ranlib $(NAME)
 
 $(LIBFT):
-				$(MAKE) -C $(LIBFT_SRC)
+					make -C $(LIBFT_SRC)
+						cp $(LIBFT) $(NAME)
+
+$(SOURCE_DIR)/%.o:	$(SOURCE_DIR)/%.c:
+						$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-				$(MAKE) -C $(LIBFT_SRC) clean
-				$(RM) $(NAME)
+					make -C $(LIBFT_SRC) clean
+						$(RM) $(NAME)
 
-fclean: 		clean
-				$(RM) $(NAME) $(OBJS)
+fclean:	clean
+					$(RM) $(NAME) $(OBJS)
 
-re:				fclean all
+re:	fclean all
 
-exe:
-				clear && clang ft_printf.c libftprintf.a && ./a.out
-
-.PHONY:			all clean fclean re libft
+.PHONY:	all clean fclean re libft

@@ -6,11 +6,11 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 02:41:47 by gusalves          #+#    #+#             */
-/*   Updated: 2021/10/08 01:38:43 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/11 23:26:15 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	c_flag(int x)
 {
@@ -24,12 +24,12 @@ int	s_flag(char *str)
 
 	if (str == NULL)
 	{
-		write(1, "(NULL)", 6);
+		write(1, "(null)", 6);
 		return (6);
 	}
 	size = ft_strlen(str);
 	ft_putstr_fd(str, 1);
-	return(size);
+	return (size);
 }
 
 int	d_and_i_flag(int n)
