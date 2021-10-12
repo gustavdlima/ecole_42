@@ -1,5 +1,0 @@
-*.o
-*.out
-*.a
-ft_printf
-ft_printf_tester

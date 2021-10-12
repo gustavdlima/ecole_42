@@ -6,11 +6,11 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 02:42:08 by gusalves          #+#    #+#             */
-/*   Updated: 2021/10/11 23:26:19 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/12 01:19:54 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../header/ft_printf.h"
 
 int	p_flag(size_t n)
 {

@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 15:36:16 by gusalves          #+#    #+#             */
-/*   Updated: 2021/08/18 18:00:17 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/12 01:22:15 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst)
 		return (NULL);
-	while(lst)
+	while (lst)
 	{
 		new = ft_lstnew(f(lst->content));
 		if (!new)
