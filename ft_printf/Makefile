@@ -6,7 +6,7 @@
 #    By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/16 18:41:56 by gusalves          #+#    #+#              #
-#    Updated: 2021/10/12 01:12:39 by gusalves         ###   ########.fr        #
+#    Updated: 2021/10/12 01:31:37 by gusalves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRCS		+=	$(SRC_DIR)/find_type.c
 SRCS		+=	$(SRC_DIR)/csdi%_flags.c
 SRCS		+=	$(SRC_DIR)/puxX_flags.c
 SRCS		+=	$(SRC_DIR)/printf_utils.c
-SRCS		+=	$(SRC_DIR)/main.c
 
 OBJS		=	$(SRCS:.c=.o)
 
