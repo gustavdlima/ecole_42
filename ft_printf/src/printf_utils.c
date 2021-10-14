@@ -6,11 +6,11 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 01:47:32 by gusalves          #+#    #+#             */
-/*   Updated: 2021/10/12 01:19:51 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/13 09:27:48 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ft_printf.h"
+#include "ft_printf.h"
 
 int	size_of_hexa(size_t	n)
 {

@@ -6,11 +6,11 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 10:52:42 by gusalves          #+#    #+#             */
-/*   Updated: 2021/10/12 01:11:22 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/13 09:27:38 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ft_printf.h"
+#include "ft_printf.h"
 
 int	format_id(const char *format, va_list args)
 {

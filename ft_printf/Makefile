@@ -5,56 +5,50 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/16 18:41:56 by gusalves          #+#    #+#              #
-#    Updated: 2021/10/12 01:31:37 by gusalves         ###   ########.fr        #
+#    Created: 2021/10/12 02:05:40 by gusalves          #+#    #+#              #
+#    Updated: 2021/10/13 10:39:37 by gusalves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libftprintf.a
+NAME			= libftprintf.a
 
-LIBFT_SRC	=	./libft
-LIBFT		=	./libft/libft.a
+INCLUDES_DIR	= ./includes
+SRC_DIR			= ./src
+OBJ_DIR			= ./build
 
-SRC_DIR		=	./src
-HEADER_DIR	=	./header
+LIBFT_PATH		= ./libft
+LIBFT			= $(LIBFT_PATH)/libft.a
+LIBFT_FLAGS		= -L$(LIBFT_PATH) -lft
 
-INCLUDES	=	-I ${HEADER_DIR}
+INCLUDES 		= -I$(INCLUDES_DIR) -I$(LIBFT_PATH)
+SRCS			= csdi_flags.c find_type.c ft_printf.c printf_utils.c \
+					puxX_flags.c
+OBJS			:= $(addprefix $(OBJ_DIR)/,$(SRCS: .c=.o))
+SRCS			:= $(addprefix $(SRC_DIR)/,$(SRCS))
 
-SRCS		=	$(SRC_DIR)/ft_printf.c
-SRCS		+=	$(SRC_DIR)/find_type.c
-SRCS		+=	$(SRC_DIR)/csdi%_flags.c
-SRCS		+=	$(SRC_DIR)/puxX_flags.c
-SRCS		+=	$(SRC_DIR)/printf_utils.c
+CC				= clang
+CFLAGS			=	-Wall -Wextra -Werror
+RM				= rm -f
 
-OBJS		=	$(SRCS:.c=.o)
+all:				$(NAME)
 
-CC			=	clang
-AR			=	ar
-RM			=	rm -f
+$(NAME):			$(LIBFT) $(OBJS)
+						@cp $(LIBFT) $@
+						@ar rcs $@ $(OBJS)
 
-CFLAGS		=	-Wall -Wextra -Werror
-ARFLAGS		=	rcs
+$(LIBFT):
+						make -C $(LIBFT_PATH)
 
-all:		$(NAME)
-
-$(NAME):	$(OBJS)
-				make -C $(LIBFT_SRC)
-				cp $(LIBFT) $(NAME)
-				$(AR) $(ARFLAGS) $(NAME) $(OBJS)
-
-.c.o:
-			$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
+$(OBJ_DIR)/%.o: 	$(SRC_DIR)/%.c
+						@mkdir -p $(OBJ_DIR)
+						@$(CC) $(CFLAGS) $(INCLUDES) $< -c -o $@
 
 clean:
-			$(MAKE) -C $(LIBFT_SRC) clean
-				$(RM) $(NAME)
+						@make clean -C $(LIBFT_PATH)
+						@$(RM) -r $(OBJ_DIR)
 
-fclean:	clean
-				$(RM) $(NAME) $(OBJS)
+fclean:
+						@make fclean -C $(LIBFT_PATH)
+						@$(RM) $(NAME)
 
-re:		fclean all
-
-exe:
-		clear && clang ./src/ft_printf.c libftprintf.a ./libft/libft.a && ./a.out
-
-.PHONY:	all clean fclean re libft
+re:						fclean all

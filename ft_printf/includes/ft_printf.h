@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 18:41:51 by gusalves          #+#    #+#             */
-/*   Updated: 2021/10/12 01:21:03 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/10/12 02:04:03 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include <stdio.h>
 
 # include "../libft/libft.h"
 
