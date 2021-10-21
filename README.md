@@ -10,8 +10,8 @@ A formação é inspirada por novas formas modernas de ensino que incluem pedago
 # Meu progresso
 
 <p align= "center">
-<img src="images/AVATAR.png">
-<img src="images/xp42.png">
+	<img src="images/AVATAR.png">
+	<img src="images/xp42.png">
 </p>
 
 <p>
