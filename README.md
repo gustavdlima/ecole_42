@@ -11,9 +11,9 @@ A formação é inspirada por novas formas modernas de ensino que incluem pedago
 
 <p align= "center">
 	<img src="images/AVATAR.png">
-	<a>
+	<p align= "center">
 	<img src="images/xp42.png">
-	</a>
+	</p>
 </p>
 
 <p>
