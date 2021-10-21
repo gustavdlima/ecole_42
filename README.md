@@ -1,5 +1,7 @@
 <p align ="center">
+	<a href ="https://42sp.org.br/">
 	<img src="images/unnamed.png">
+	</a>
 </p>
 
 <p>
@@ -17,7 +19,7 @@
 </p>
 
 <p>
-	h2>Projetos realizados:</h2>
+	<h2>Projetos realizados:</h2>
 </p>
 
 <p>
