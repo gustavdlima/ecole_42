@@ -22,7 +22,7 @@
 </p>
 
 <p>
-	Para usar a biblioteca nas suas funções, inclua o header:
+	<h3> Para usar a biblioteca nas suas funções, inclua o header: </h3>
 
 ```c
 #include "get_next_line.h"
