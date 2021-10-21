@@ -9,16 +9,17 @@ A formação é inspirada por novas formas modernas de ensino que incluem pedago
 
 # Meu progresso
 
-<p>
+<p align= "center">
+<img src="images/AVATAR.png">
 <img src="images/xp42.png">
 </p>
 
 <p>
-<h1>Projetos da fase 1</h1>
+<h2>Projetos realizados:</h2>
 </p>
 
 <p>
-<a href="https://github.com/gustavdlima/ecole_42/tree/main/libft">
+<a  href="https://github.com/gustavdlima/ecole_42/tree/main/libft">
 <img src="images/fase1/libft.png">
 </a>
 <a href="https://github.com/gustavdlima/ecole_42/tree/main/gnl">
