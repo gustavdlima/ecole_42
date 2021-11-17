@@ -22,17 +22,24 @@
 	<h2>Projetos realizados:</h2>
 </p>
 
+<!-- LIBFT-->
 <p>
 	<a  href="https://github.com/gustavdlima/ecole_42/tree/main/libft">
 	<img src="images/fase1/libft.png">
 	</a>
+	<!-- GNL-->
 	<a href="https://github.com/gustavdlima/ecole_42/tree/main/gnl">
 	<img src="images/fase1/gnl.png">
 	</a>
 </p>
 
+<!-- PRINTF-->
 <p>
 	<a href="https://github.com/gustavdlima/ecole_42/tree/main/ft_printf">
 	<img src="images/fase1/ft_printf.png">
+	</a>
+	<!-- BORN-->
+	<a href="https://github.com/gustavdlima/ecole_42/tree/main/ft_printf">
+	<img src="images/fase1/borntoberoot.png">
 	</a>
 </p>
