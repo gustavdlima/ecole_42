@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:36:40 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/08 20:52:48 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/09 18:43:07 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,16 @@ void	matrix_validation(t_game *game)
 	}
 }
 
-void	validations(t_game *game, char	c)
+void	validations(t_game *game, char	c, int x, int y)
 {
 	if (c == 'C')
 		game->i_collectible++;
 	else if (c == 'P')
+	{
 		game->i_player++;
+		game->x_player = x;
+		game->y_player = y;
+	}			
 	else if (c == 'E')
 		game->i_exit++;
 	else if (c == '0' || c == '1')
@@ -49,14 +53,14 @@ void	map_walk(t_game *game)
 {
 	int	x;
 	int y;
-
+	
 	x = 0;
 	while (game->map[x])
 	{
 		y = 0;
 		while (game->map[x][y])
 		{
-			validations(game, game->map[x][y]);
+			validations(game, game->map[x][y], x, y);
 			y++;
 		}
 		x++;
@@ -73,7 +77,7 @@ void	map(t_game *game)
 	char	*temp;
 	char	*line;
 
-	fd = open("src/maps/map.ber", O_RDONLY);
+	fd = open("src/maps/e_map.ber", O_RDONLY);
 	if (fd < 0)
 		return ;
 	temp = ft_strdup("");

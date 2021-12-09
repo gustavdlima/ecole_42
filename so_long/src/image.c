@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 20:41:55 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/08 21:26:12 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/09 18:39:00 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	img_render(t_game *game)
 			if (game->map[x][y] == '1')
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.wall, y * 36, x * 36);
 			else if (game->map[x][y] == '0')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.floor, y * 36, x * 36);
-			else if (game->map[x][y] == 'P')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.player, y * 36, x * 36);
+			 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.floor, y * 36, x * 36);
+			// else if (game->map[x][y] == 'P')
+			// 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.player, y * 36, x * 36);
 			else if (game->map[x][y] == 'E')
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.exit, y * 36, x * 36);
 			else if (game->map[x][y] == 'C')
@@ -46,5 +46,13 @@ int	img_render(t_game *game)
 		}
 		x++;
 	}
+	
+	return (0);
+}
+
+int	render_player(t_game *game)
+{
+	img_render(game);
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.player, game->y_player * 36, game->x_player * 36);
 	return (0);
 }
