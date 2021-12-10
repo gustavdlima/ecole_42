@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:36:40 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/09 18:43:07 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:15:17 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,15 @@ void	map_walk(t_game *game)
 		exit (4);
 }
 
-void	map(t_game *game)
+void	map(char *argv, t_game *game)
 {
 	int		fd;
 	char	*temp;
 	char	*line;
 
-	fd = open("src/maps/e_map.ber", O_RDONLY);
+	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		return ;
+		exit (999);
 	temp = ft_strdup("");
 	while (1)
 	{

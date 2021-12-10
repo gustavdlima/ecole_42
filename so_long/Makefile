@@ -6,7 +6,7 @@
 #    By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 00:11:59 by gusalves          #+#    #+#              #
-#    Updated: 2021/12/09 18:19:55 by gusalves         ###   ########.fr        #
+#    Updated: 2021/12/10 16:56:26 by gusalves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIBFT	= $(LIBFT_PATH)/libft.a
 LIBFT_FLAGS = -L$(LIBFT_PATH) -lft
 INCLUDES	= $(addprefix -I,$(INCLUDES_DIR))
 
-SRCS	 = main.c map.c window.c image.c move.c
+SRCS	 = main.c map.c window.c image.c move.c so_long_utils.c
 
 OBJS	:= $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 SRCS	:= $(addprefix $(SRC_DIR)/,$(SRCS))

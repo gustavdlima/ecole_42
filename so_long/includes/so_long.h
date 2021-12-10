@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 00:59:08 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/09 18:39:22 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/10 16:36:21 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,12 @@ typedef	struct	s_game {
 
 # define SPRITE_SIZE 36
 
-// functions
-void	init_functions(t_game *game);
+// init functions
+void	init_var(t_game *game);
+void	init_functions(char **argv, t_game *game);
 
 //map
-void	map(t_game *game);
+void	map(char *argv, t_game *game);
 void	map_walk(t_game *game);
 void	validations(t_game *game, char	c, int x, int y);
 void	matrix_validation(t_game *game);
@@ -86,7 +87,7 @@ int		key_press(int keycode, t_game *game);
 void	move_player(int keycode, t_game *game, int row, int col);
 int		move_check(int	keycode, t_game *game, int row, int col);
 
-
-//
+// utils
+int	destroy(t_game *game);
 
 #endif
