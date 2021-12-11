@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -507,9 +506,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
  */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-
 // gnl
 char	*get_next_line(int fd);
-
 
 #endif

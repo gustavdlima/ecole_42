@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 00:59:08 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 17:43:15 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/11 20:24:37 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 // structs
 
-typedef	struct	s_img {
+typedef struct s_img {
 	void	*wall;
 	void	*floor;
 	void	*player;
@@ -32,7 +32,7 @@ typedef	struct	s_img {
 	int		width;
 }				t_img;
 
-typedef	struct	s_game {
+typedef struct s_game {
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
@@ -71,7 +71,7 @@ void	start_functions(char **argv, t_game *game);
 //map
 void	map(char *argv, t_game *game);
 void	map_check(t_game *game);
-void	check_objects(t_game *game, char	c, int x, int y);
+void	check_objects(t_game *game, char c, int x, int y);
 void	matrix_check(t_game *game);
 void	wall_check(t_game *game);
 
@@ -82,17 +82,17 @@ void	window_start(t_game *game);
 void	img_start(t_game *game);
 int		img_render(t_game *game);
 int		render_player(t_game *game);
+void	put_img(t_game *game, char c, int x, int y);
 
 // move functions
 int		key_press(int keycode, t_game *game);
 void	move_player(int keycode, t_game *game, int row, int col);
-int		move_check(int	keycode, t_game *game, int row, int col);
+int		move_check(int keycode, t_game *game, int row, int col);
 
 // utils
-int	destroy(t_game *game);
+int		destroy(t_game *game);
 void	msg_out(char *c, t_game *game);
 void	free_map(t_game *game);
 char	*strjoin_free(char *s1, char const *s2);
-
 
 #endif

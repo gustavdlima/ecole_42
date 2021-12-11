@@ -6,27 +6,27 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 15:26:11 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 18:48:13 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/11 20:30:21 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		move_check(int	keycode, t_game *game, int row, int col)
+int	move_check(int keycode, t_game *game, int row, int col)
 {
 	if (game->map[row][col] == '1')
 		return (-1);
 	if (game->map[row][col] == 'E' && game->i_collectible == 0)
-		{
+	{
 			game->end_game = 1;
 			game->map[game->x_player][game->y_player] = '0';
-		}
+	}
 	else if (game->map[row][col] == 'E')
 		return (-1);
 	if (game->end_game)
 		return (0);
 	if (keycode == KEY_W || keycode == KEY_A || keycode == KEY_S
-		 || keycode == KEY_D)
+		|| keycode == KEY_D)
 	{
 		game->moves++;
 		printf("Moves: %d\n", game->moves);
@@ -41,7 +41,7 @@ void	move_player(int keycode, t_game *game, int row, int col)
 	int	x;
 	int	y;
 	int	valid;
-	
+
 	x = game->x_player;
 	y = game->y_player;
 	valid = move_check(keycode, game, row, col);
@@ -67,16 +67,17 @@ int	key_press(int keycode, t_game *game)
 	if (keycode == KEY_W)
 		row--;
 	else if (keycode == KEY_A)
-	 	col--;
+		col--;
 	else if (keycode == KEY_S)
 		row++;
-	else if (keycode == KEY_D)	
+	else if (keycode == KEY_D)
 		col++;
 	else if (keycode == KEY_ESC)
-		exit(5); //mensagem personalizada aqui meu querido
+	{
+		printf("\nClose!\n");
+		exit(5);
+	}
 	if (game->end_game != 1)
 		move_player(keycode, game, row, col);
-	for(int i = 0; game->map[i]; i++)
-		printf("%s\n", game->map[i]);
 	return (0);
 }

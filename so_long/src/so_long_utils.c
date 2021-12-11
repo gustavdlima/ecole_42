@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 16:10:29 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 18:04:50 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/11 20:20:38 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ int	destroy(t_game *game)
 	mlx_destroy_image(game->mlx_ptr, game->img.exit);
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
+	free_map(game);
 	free(game->mlx_ptr);
+	exit (0);
 }
 
-void	msg_out(char *c,t_game *game)
+void	msg_out(char *c, t_game *game)
 {
 	printf("Error!\n%s\n", c);
 	free_map(game);
@@ -43,7 +45,7 @@ void	free_map(t_game *game)
 		free(game->map[i]);
 		i++;
 	}
-	free(game->map);	
+	free(game->map);
 }
 
 char	*strjoin_free(char *s1, char const *s2)
