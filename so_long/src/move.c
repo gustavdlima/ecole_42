@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 15:26:11 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/10 15:39:26 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/11 18:48:13 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		move_check(int	keycode, t_game *game, int row, int col)
 	if (game->map[row][col] == 'E' && game->i_collectible == 0)
 		{
 			game->end_game = 1;
+			game->map[game->x_player][game->y_player] = '0';
 		}
 	else if (game->map[row][col] == 'E')
 		return (-1);
@@ -49,10 +50,11 @@ void	move_player(int keycode, t_game *game, int row, int col)
 		if (game->map[row][col] == 'C')
 			game->i_collectible--;
 		game->map[x][y] = '0';
+		game->map[row][col] = 'P';
 		game->x_player = row;
 		game->y_player = col;
+		render_player(game);
 	}
-	render_player(game);
 }
 
 int	key_press(int keycode, t_game *game)
@@ -74,5 +76,7 @@ int	key_press(int keycode, t_game *game)
 		exit(5); //mensagem personalizada aqui meu querido
 	if (game->end_game != 1)
 		move_player(keycode, game, row, col);
+	for(int i = 0; game->map[i]; i++)
+		printf("%s\n", game->map[i]);
 	return (0);
 }

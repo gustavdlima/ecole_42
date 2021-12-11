@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 16:10:29 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/10 17:04:21 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/11 18:04:50 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,51 @@ int	destroy(t_game *game)
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
 	free(game->mlx_ptr);
+}
+
+void	msg_out(char *c,t_game *game)
+{
+	printf("Error!\n%s\n", c);
+	free_map(game);
+	exit (42);
+}
+
+void	free_map(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->map[i])
+	{
+		free(game->map[i]);
+		i++;
+	}
+	free(game->map);	
+}
+
+char	*strjoin_free(char *s1, char const *s2)
+{
+	char	*nstring;
+	size_t	i;
+	size_t	a;
+
+	nstring = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	i = 0;
+	a = 0;
+	if (nstring == 0)
+		return (0);
+	while (s1[i] != '\0')
+	{
+		nstring[i] = s1[i];
+		i++;
+	}
+	while (s2[a] != '\0')
+	{
+		nstring[i + a] = s2[a];
+		a++;
+	}
+	nstring[i + a] = '\0';
+	free(s1);
+	s1 = NULL;
+	return (nstring);
 }
