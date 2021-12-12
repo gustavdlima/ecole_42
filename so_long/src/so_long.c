@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:31:25 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 20:19:52 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/12 19:18:26 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	if (argc < 2)
-		msg_out("The number of arguments is less than 2.", &game);
+	if (argc != 2)
+	{
+		printf("Error!\nThe number of arguments is less than 2.\n");
+		exit(1);
+	}
 	if (ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])) == 0)
-		msg_out("Invalid map type.", &game);
+	{
+		printf("Error!\nInvalid map type.\n");
+		exit(2);
+	}
 	game.mlx_ptr = mlx_init();
 	start_functions(argv, &game);
 	mlx_hook(game.win_ptr, 3, 1L << 1, key_press, &game);

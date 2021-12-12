@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 16:10:29 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 20:20:38 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:57:12 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	destroy(t_game *game)
 {
+	printf("Closing the game...\n");
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	mlx_loop_end(game->mlx_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->img.floor);
@@ -25,14 +26,13 @@ int	destroy(t_game *game)
 	mlx_destroy_display(game->mlx_ptr);
 	free_map(game);
 	free(game->mlx_ptr);
-	exit (0);
+	exit (42);
 }
 
 void	msg_out(char *c, t_game *game)
 {
 	printf("Error!\n%s\n", c);
-	free_map(game);
-	exit (42);
+	destroy(game);
 }
 
 void	free_map(t_game *game)

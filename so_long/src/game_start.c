@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_start.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 17:16:33 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 20:32:04 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:56:17 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	start_functions(char **argv, t_game *game)
 {
 	start_var(game);
 	map(argv[1], game);
-	map_check(game);
-	matrix_check(game);
 	window_start(game);
 	img_start(game);
+	matrix_check(game);
+	map_check(game);
 }

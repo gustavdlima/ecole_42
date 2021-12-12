@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 15:26:11 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 20:30:21 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:34:52 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ int	key_press(int keycode, t_game *game)
 		col++;
 	else if (keycode == KEY_ESC)
 	{
-		printf("\nClose!\n");
-		exit(5);
+		destroy(game);
 	}
 	if (game->end_game != 1)
 		move_player(keycode, game, row, col);
