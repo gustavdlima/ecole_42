@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 00:59:08 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 20:24:37 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/12 21:11:01 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include "libft.h"
 # include <mlx.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
 # include <stdio.h>
 
 // structs

@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+         #
+#    By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 00:11:59 by gusalves          #+#    #+#              #
-#    Updated: 2021/12/11 17:44:38 by gusalves         ###   ########.fr        #
+#    Updated: 2021/12/12 21:08:47 by gusalves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
 
 CC	= gcc
-CFLAGS	= 
+CFLAGS	= -Wall -Wextra -Werror
 RM	= rm -f
 
 INCLUDES_DIR	= ./includes ./libs/libft
@@ -37,7 +37,7 @@ $(NAME): $(LIBFT) $(OBJS)
 
 $(LIBFT):
 	make -C $(LIBFT_PATH)
-	
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBFT_FLAGS) -lmlx -lXext -lX11
