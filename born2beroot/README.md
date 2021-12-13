@@ -17,15 +17,17 @@
 	<img src="images/../../images/125.jpg">
 </p>
 
-<h2> Mandatório </h2>
-> Escolher o SO (Debian) e virtualizá-lo;
-> Particionar com LVM e criptografia;
-> Aplicar políticas de privilégio com o grupo SUDO a Usuários;
-> Estabelecer uma política de senha robusta para todos os usuários;
-> Habilitar o UFW Firewall e deixar uma porta disponível para conexão;
-> Configurar um serviço SSH para uma porta específica;
-> Criar um shell script de monitoramento que exibe informações sobre o servidor para todos os usuários conectados a cada 10 minutos;
-
-<h2> Bônus </h2>
-> Configurar um WordPress website funcional com os serviços: lighttpd, MariaDB e PHP.
-> Configurar um serviço útil (code-server);
+<body>
+<dl>
+<dt><h2>Mandatório</h2></dt>
+<dd> - Escolher o SO (Debian) e virtualizá-lo;</dd>
+<dd> - Particionar com LVM e criptografia;</dd>
+<dd> - Estabelecer uma política de senha robusta para todos os usuários;</dd>
+<dd> - Habilitar o UFW Firewall e deixar uma porta disponível para conexão;</dd>
+<dd> - Configurar um serviço SSH para uma porta específica;</dd>
+<dd> - Criar um shell script de monitoramento que exibe informações sobre o servidor para todos os usuários conectados a cada 10 minutos;</dd>
+<dt><h2>Bônus</h2></dt>
+<dd> - Configurar um WordPress website funcional com os serviços: lighttpd, MariaDB e PHP.</dd>
+<dd> - Configurar um serviço útil (code-server);</dd>
+</dl>
+</body>
