@@ -14,7 +14,7 @@ Nesse projeto recriamos algumas funções e comportamento da printf, função qu
 	<h2> Pontuação </h2>
 </p>
 <p>
-	<img src="images/../../images/125.jpg">
+	<img src="images/../../images/100.jpg">
 </p>
 
 <p>

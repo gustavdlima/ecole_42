@@ -18,7 +18,7 @@
 </p>
 
 <p>
-	<h2> Como usar a função:
+	<h2> Como usar a função: </h2>
 </p>
 
 <p>
