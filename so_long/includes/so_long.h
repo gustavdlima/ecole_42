@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 00:59:08 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/12 21:11:01 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/12 21:24:08 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct s_game {
 
 # define SPRITE_SIZE 36
 
-// init functions
+// init
 void	start_var(t_game *game);
 void	start_functions(char **argv, t_game *game);
 
@@ -81,7 +81,7 @@ int		img_render(t_game *game);
 int		render_player(t_game *game);
 void	put_img(t_game *game, char c, int x, int y);
 
-// move functions
+// move
 int		key_press(int keycode, t_game *game);
 void	move_player(int keycode, t_game *game, int row, int col);
 int		move_check(int keycode, t_game *game, int row, int col);

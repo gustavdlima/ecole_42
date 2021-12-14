@@ -6,7 +6,7 @@
 /*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:31:25 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/12 19:18:26 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:21:12 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char **argv)
 		printf("Error!\nInvalid map type.\n");
 		exit(2);
 	}
-	game.mlx_ptr = mlx_init();
 	start_functions(argv, &game);
 	mlx_hook(game.win_ptr, 3, 1L << 1, key_press, &game);
 	mlx_loop_hook(game.mlx_ptr, render_player, &game);

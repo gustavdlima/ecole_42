@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gusalves <gusalves@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gusalves <gusalves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:36:40 by gusalves          #+#    #+#             */
-/*   Updated: 2021/12/11 18:05:28 by gusalves         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:18:09 by gusalves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"	
+#include "so_long.h"
 
 void	map(char *argv, t_game *game)
 {
@@ -20,7 +20,10 @@ void	map(char *argv, t_game *game)
 
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		msg_out("File Descriptor is less than 0.", game);
+	{
+		printf("Fd is less than 0.\n");
+		exit(5);
+	}
 	temp = ft_strdup("");
 	while (1)
 	{
